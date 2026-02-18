@@ -7,37 +7,35 @@ export default {
   theme: {
     extend: {
       colors: {
-        'bone':        '#F4EFE8',
-        'linen':       '#EDE6DA',
-        'clay':        '#E4D8C8',
-        'warm-border': '#CEC4B8',
-        'warm-rule':   '#DDD5C8',
-        'ink':         '#1C1814',
-        'ink-mid':     '#4A4039',
-        'warm-secondary': '#6B6059',
-        'warm-muted':  '#A89D95',
-        'warm-faint':  '#C0B5AA',
-        'terra':       '#6B5744',
-        'terra-mid':   '#9A8A7A',
-        'charcoal':    '#2C2820',
+        'umber':        '#2C241E',
+        'umber-mid':    '#342C25',
+        'umber-raised': '#3A3028',
+        'earth-border': '#4A3F35',
+        'earth-rule':   '#3E3430',
+        'bone':         '#F5F5F0',
+        'taupe':        '#B8A99A',
+        'taupe-muted':  '#7A6D62',
+        'taupe-faint':  '#5A4E46',
+        'sand':         '#C4A882',
+        'sand-dark':    '#A08060',
+        'void':         '#1E1813',
       },
       fontFamily: {
-        'display': ['"Space Grotesk"', 'sans-serif'],
-        'mono':    ['"JetBrains Mono"', 'monospace'],
-        'serif':   ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        'serif': ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        'sans':  ['"Montserrat"', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in':  'fadeIn 0.2s ease-out',
         'slide-in': 'slideIn 0.4s ease-out',
       },
       keyframes: {
-        'fadeIn': {
-          'from': { opacity: '0', transform: 'translateY(6px)' },
-          'to':   { opacity: '1', transform: 'translateY(0)' },
+        fadeIn: {
+          from: { opacity: '0', transform: 'translateY(6px)' },
+          to:   { opacity: '1', transform: 'translateY(0)' },
         },
-        'slideIn': {
-          'from': { opacity: '0', transform: 'translateY(14px)' },
-          'to':   { opacity: '1', transform: 'translateY(0)' },
+        slideIn: {
+          from: { opacity: '0', transform: 'translateY(14px)' },
+          to:   { opacity: '1', transform: 'translateY(0)' },
         },
       },
     },

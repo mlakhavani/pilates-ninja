@@ -364,7 +364,7 @@ function IntensityMark({ level }) {
         <div
           key={i}
           className={`w-[5px] h-[5px] rounded-full transition-colors ${
-            i <= level ? 'bg-[#6B5744]' : 'bg-[#CEC4B8]'
+            i <= level ? 'bg-[#C4A882]' : 'bg-[#3E3430]'
           }`}
         />
       ))}
@@ -376,10 +376,10 @@ function StrategyTag({ label, active, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={`px-3 py-1.5 rounded-full text-[11px] tracking-wider font-medium border transition-all duration-150 ${
+      className={`px-3.5 py-1.5 rounded-full text-[11px] tracking-wider font-['Montserrat'] font-medium border transition-all duration-150 ${
         active
-          ? 'bg-[#6B5744] border-[#6B5744] text-[#F4EFE8]'
-          : 'bg-transparent border-[#CEC4B8] text-[#6B6059] hover:border-[#9A8A7A] hover:text-[#1C1814]'
+          ? 'bg-[#C4A882] border-[#C4A882] text-[#1E1813]'
+          : 'bg-[#342C25] border-[#4A3F35] text-[#B8A99A] hover:border-[#7A6D62] hover:text-[#F5F5F0]'
       }`}
     >
       {label}
@@ -389,23 +389,23 @@ function StrategyTag({ label, active, onClick }) {
 
 function ExerciseRow({ exercise, index, isExpanded, onToggle }) {
   return (
-    <div className="border-b border-[#DDD5C8] last:border-b-0">
+    <div className="border-b border-[#3E3430] last:border-b-0">
       {/* Row Header */}
       <button
         onClick={onToggle}
         className="w-full text-left py-5 flex items-start gap-5 group"
       >
         {/* Number */}
-        <span className="flex-shrink-0 font-['Cormorant_Garamond'] text-[13px] text-[#A89D95] leading-none pt-0.5 w-6 text-right">
+        <span className="flex-shrink-0 font-['Cormorant_Garamond'] text-[13px] text-[#5A4E46] leading-none pt-0.5 w-6 text-right">
           {String(index + 1).padStart(2, '0')}
         </span>
 
         {/* Move + duration */}
         <div className="flex-1 min-w-0">
-          <div className="font-['Cormorant_Garamond'] font-medium text-[18px] text-[#1C1814] leading-snug">
+          <div className="font-['Cormorant_Garamond'] font-medium text-[19px] text-[#F5F5F0] leading-snug">
             {exercise.move}
           </div>
-          <div className="text-[11px] tracking-widest text-[#A89D95] mt-1 font-mono uppercase">
+          <div className="text-[10px] tracking-[0.2em] text-[#7A6D62] mt-1.5 font-['Montserrat'] font-light uppercase">
             {exercise.duration}
           </div>
         </div>
@@ -413,7 +413,7 @@ function ExerciseRow({ exercise, index, isExpanded, onToggle }) {
         {/* Intensity + toggle */}
         <div className="flex-shrink-0 flex items-center gap-4 pt-1">
           <IntensityMark level={exercise.intensity} />
-          <div className="text-[#A89D95] text-xs group-hover:text-[#6B5744] transition-colors">
+          <div className="text-[#5A4E46] text-sm group-hover:text-[#C4A882] transition-colors select-none">
             {isExpanded ? '−' : '+'}
           </div>
         </div>
@@ -421,19 +421,19 @@ function ExerciseRow({ exercise, index, isExpanded, onToggle }) {
 
       {/* Expanded Detail */}
       {isExpanded && (
-        <div className="pb-7 pl-11 animate-[fadeIn_0.2s_ease-out]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
+        <div className="pb-8 pl-11 animate-[fadeIn_0.2s_ease-out]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-7">
             {[
-              { label: 'The Flow', text: exercise.flow },
-              { label: 'Form Notes', text: exercise.corrections },
-              { label: 'Progression', text: exercise.levelUp },
+              { label: 'The Flow',     text: exercise.flow },
+              { label: 'Form Notes',   text: exercise.corrections },
+              { label: 'Progression',  text: exercise.levelUp },
               { label: 'Modification', text: exercise.reset },
             ].map(({ label, text }) => (
               <div key={label}>
-                <div className="text-[10px] tracking-[0.18em] uppercase text-[#A89D95] font-mono mb-2">
+                <div className="text-[9px] tracking-[0.22em] uppercase text-[#7A6D62] font-['Montserrat'] font-medium mb-2.5">
                   {label}
                 </div>
-                <p className="text-[13px] text-[#4A4039] leading-relaxed">{text}</p>
+                <p className="text-[13px] text-[#B8A99A] leading-relaxed font-['Montserrat'] font-light">{text}</p>
               </div>
             ))}
           </div>
@@ -447,41 +447,41 @@ function DailyEdge({ edge }) {
   const [revealed, setRevealed] = useState(false)
 
   return (
-    <div className="mt-16 pt-10 border-t border-[#CEC4B8]">
+    <div className="mt-16 pt-10 border-t border-[#4A3F35]">
       {/* Label */}
-      <div className="flex items-center gap-4 mb-6">
-        <span className="text-[10px] tracking-[0.22em] uppercase font-mono text-[#A89D95]">
+      <div className="flex items-center gap-4 mb-7">
+        <span className="text-[9px] tracking-[0.25em] uppercase font-['Montserrat'] font-medium text-[#7A6D62]">
           The Daily Edge
         </span>
-        <div className="flex-1 h-px bg-[#DDD5C8]" />
+        <div className="flex-1 h-px bg-[#3E3430]" />
       </div>
 
       {/* Move title */}
-      <div className="font-['Cormorant_Garamond'] text-[22px] font-medium text-[#1C1814] mb-1">
+      <div className="font-['Cormorant_Garamond'] text-[24px] font-medium text-[#F5F5F0] mb-1.5">
         {edge.move}
       </div>
-      <div className="text-[11px] tracking-widest uppercase font-mono text-[#A89D95] mb-8">
+      <div className="text-[10px] tracking-[0.2em] uppercase font-['Montserrat'] font-light text-[#7A6D62] mb-9">
         {edge.duration}
       </div>
 
       {/* Secret reveal */}
       {!revealed ? (
         <div className="flex items-center gap-4">
-          <div className="flex-1 h-px bg-[#DDD5C8]" />
+          <div className="flex-1 h-px bg-[#3E3430]" />
           <button
             onClick={() => setRevealed(true)}
-            className="text-[11px] tracking-[0.18em] uppercase font-mono text-[#9A8A7A] hover:text-[#6B5744] transition-colors py-1 px-3 border border-[#CEC4B8] hover:border-[#9A8A7A] rounded-sm"
+            className="text-[10px] tracking-[0.2em] uppercase font-['Montserrat'] font-medium text-[#7A6D62] hover:text-[#C4A882] transition-colors py-1.5 px-4 border border-[#4A3F35] hover:border-[#7A6D62] rounded-sm"
           >
             Reveal
           </button>
-          <div className="flex-1 h-px bg-[#DDD5C8]" />
+          <div className="flex-1 h-px bg-[#3E3430]" />
         </div>
       ) : (
         <div className="animate-[fadeIn_0.4s_ease-out]">
-          <div className="text-[10px] tracking-[0.18em] uppercase font-mono text-[#A89D95] mb-3">
+          <div className="text-[9px] tracking-[0.22em] uppercase font-['Montserrat'] font-medium text-[#7A6D62] mb-3">
             Instructor's Secret
           </div>
-          <p className="text-[14px] text-[#4A4039] leading-relaxed max-w-2xl">
+          <p className="text-[14px] text-[#B8A99A] leading-relaxed font-['Montserrat'] font-light max-w-2xl">
             {edge.secret}
           </p>
         </div>
@@ -525,46 +525,47 @@ export default function App() {
   const activeTagLabels = selectedTags.map(id => STRATEGIES.find(s => s.id === id)?.label).filter(Boolean)
 
   return (
-    <div className="min-h-screen bg-[#F4EFE8]">
-      {/* Subtle paper grain */}
+    <div className="min-h-screen bg-[#2C241E]">
+
+      {/* Organic stone grain overlay */}
       <div
-        className="fixed inset-0 pointer-events-none z-0 opacity-[0.03]"
+        className="fixed inset-0 pointer-events-none z-0 opacity-[0.045]"
         style={{
-          backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'4\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")',
-          backgroundSize: '200px',
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.72\' numOctaves=\'4\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")',
+          backgroundSize: '220px',
         }}
       />
 
-      <div className="relative z-10 max-w-3xl mx-auto px-6 pb-24">
+      <div className="relative z-10 max-w-3xl mx-auto px-6 pb-32">
 
         {/* ── HEADER ── */}
-        <header className="pt-16 pb-12 text-center">
-          <div className="text-[10px] tracking-[0.3em] uppercase font-mono text-[#A89D95] mb-5">
-            Boutique · Ninja Edition
+        <header className="pt-16 pb-14 text-center">
+          <div className="text-[9px] tracking-[0.4em] uppercase font-['Montserrat'] font-medium text-[#5A4E46] mb-6">
+            Boutique &nbsp; Ninja Edition
           </div>
-          <h1 className="font-['Cormorant_Garamond'] text-[42px] md:text-[54px] font-light text-[#1C1814] leading-none tracking-wide mb-3">
+          <h1 className="font-['Cormorant_Garamond'] text-[44px] md:text-[58px] font-light text-[#F5F5F0] leading-none tracking-[0.06em] mb-4">
             Pilates Powerhouse Pro
           </h1>
-          <div className="h-px w-16 bg-[#CEC4B8] mx-auto mb-4" />
-          <p className="text-[12px] tracking-[0.25em] uppercase font-mono text-[#A89D95]">
+          <div className="h-px w-14 bg-[#4A3F35] mx-auto mb-5" />
+          <p className="text-[10px] tracking-[0.3em] uppercase font-['Montserrat'] font-light text-[#7A6D62]">
             Sequence Designer
           </p>
         </header>
 
         {/* ── INPUT ── */}
-        <section className="mb-10">
+        <section className="mb-11">
           <input
             type="text"
             value={theme}
             onChange={e => setTheme(e.target.value)}
             placeholder="Enter a theme, mood, or event..."
-            className="w-full bg-transparent border-0 border-b border-[#CEC4B8] focus:border-[#6B5744] outline-none py-3 text-[15px] text-[#1C1814] placeholder-[#C0B5AA] font-['Space_Grotesk'] tracking-wide transition-colors"
+            className="w-full bg-transparent border-0 border-b border-[#4A3F35] focus:border-[#C4A882] outline-none py-3 text-[15px] text-[#F5F5F0] placeholder-[#5A4E46] font-['Montserrat'] font-light tracking-wide transition-colors"
           />
         </section>
 
         {/* ── STRATEGY FILTER ── */}
-        <section className="mb-10">
-          <div className="text-[10px] tracking-[0.22em] uppercase font-mono text-[#A89D95] mb-4">
+        <section className="mb-11">
+          <div className="text-[9px] tracking-[0.25em] uppercase font-['Montserrat'] font-medium text-[#7A6D62] mb-4">
             Strategy Filter
           </div>
           <div className="flex flex-wrap gap-2">
@@ -583,34 +584,32 @@ export default function App() {
         <button
           onClick={handleGenerate}
           disabled={isGenerating}
-          className="w-full py-4 bg-[#2C2820] hover:bg-[#1C1814] text-[#F4EFE8] text-[12px] tracking-[0.22em] uppercase font-mono transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full py-4 bg-[#1E1813] hover:bg-[#150F0A] text-[#F5F5F0] text-[10px] tracking-[0.28em] uppercase font-['Montserrat'] font-medium transition-colors duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
         >
-          {isGenerating ? 'Composing Sequence...' : sequence ? 'Regenerate Sequence' : 'Generate Sequence'}
+          {isGenerating ? 'Composing...' : sequence ? 'Regenerate Sequence' : 'Generate Sequence'}
         </button>
 
         {/* ── SEQUENCE OUTPUT ── */}
         {sequence && !isGenerating && (
           <div ref={sequenceRef} className="mt-16 animate-[slideIn_0.4s_ease-out]">
 
-            {/* Sequence header */}
-            <div className="mb-2">
-              <div className="flex items-center gap-4 mb-6">
-                <span className="text-[10px] tracking-[0.22em] uppercase font-mono text-[#A89D95]">
-                  Your Sequence
-                </span>
-                <div className="flex-1 h-px bg-[#DDD5C8]" />
-              </div>
-
-              {/* Theme + tags context line */}
-              {(theme || activeTagLabels.length > 0) && (
-                <div className="font-['Cormorant_Garamond'] italic text-[15px] text-[#9A8A7A] mb-8">
-                  {[theme, ...activeTagLabels].filter(Boolean).join(' · ')}
-                </div>
-              )}
+            {/* Section label */}
+            <div className="flex items-center gap-4 mb-7">
+              <span className="text-[9px] tracking-[0.25em] uppercase font-['Montserrat'] font-medium text-[#7A6D62]">
+                Your Sequence
+              </span>
+              <div className="flex-1 h-px bg-[#3E3430]" />
             </div>
 
+            {/* Theme + tags context line */}
+            {(theme || activeTagLabels.length > 0) && (
+              <div className="font-['Cormorant_Garamond'] italic text-[16px] text-[#7A6D62] mb-9">
+                {[theme, ...activeTagLabels].filter(Boolean).join('  ·  ')}
+              </div>
+            )}
+
             {/* Table legend */}
-            <div className="flex items-center gap-5 pb-3 border-b border-[#DDD5C8] text-[10px] tracking-[0.18em] uppercase font-mono text-[#C0B5AA]">
+            <div className="flex items-center gap-5 pb-3 border-b border-[#3E3430] text-[9px] tracking-[0.2em] uppercase font-['Montserrat'] font-medium text-[#4A3F35]">
               <span className="w-6" />
               <span className="flex-1">Movement</span>
               <span>Depth</span>
@@ -639,21 +638,29 @@ export default function App() {
         {/* ── EMPTY STATE ── */}
         {!sequence && !isGenerating && (
           <div className="mt-20 text-center">
-            <div className="h-px w-8 bg-[#CEC4B8] mx-auto mb-6" />
-            <p className="text-[11px] tracking-[0.2em] uppercase font-mono text-[#C0B5AA]">
+            <div className="h-px w-8 bg-[#3E3430] mx-auto mb-6" />
+            <p className="text-[10px] tracking-[0.22em] uppercase font-['Montserrat'] font-light text-[#4A3F35]">
               Enter a theme and generate
             </p>
           </div>
         )}
 
         {/* ── FOOTER ── */}
-        <footer className="mt-20 pt-8 border-t border-[#DDD5C8] text-center">
-          <p className="text-[10px] tracking-[0.2em] uppercase font-mono text-[#C0B5AA]">
-            Pilates Powerhouse Pro · Boutique Ninja Edition
+        <footer className="mt-20 pt-8 border-t border-[#3E3430] text-center">
+          <p className="text-[9px] tracking-[0.22em] uppercase font-['Montserrat'] font-light text-[#4A3F35]">
+            Pilates Powerhouse Pro &nbsp;·&nbsp; Boutique Ninja Edition
           </p>
         </footer>
 
       </div>
+
+      {/* ── MEERA SIGNATURE ── */}
+      <div className="fixed bottom-5 right-6 z-50 pointer-events-none">
+        <p className="font-['Cormorant_Garamond'] italic text-[12px] text-[#3E3430] tracking-wide select-none">
+          Designed by Meera Lakhavani
+        </p>
+      </div>
+
     </div>
   )
 }
